@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./index.css";
+import { schedule } from "./data/schedule";
+
+const days = Object.keys(schedule);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 className="text-3xl font-bold text-center py-6">
+        💅 Pikmi Schedule 💅
+      </h1>
+
+      <table className="w-full border border-gray-300">
+        <thead className="flex flex-row">
+          <tr>
+            <th>Пара</th>
+          </tr>
+          {days.map((day) => (
+            <tr key={day}>
+              <th className="text-center">{day}</th>
+            </tr>
+          ))}
+        </thead>
+        <tbody></tbody>
+      </table>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
